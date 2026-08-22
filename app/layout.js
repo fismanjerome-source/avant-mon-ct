@@ -1,6 +1,7 @@
 import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import SearchBar from "./components/SearchBar";
 import Logo from "./components/Logo";
+import SideMenu from "./components/SideMenu";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -77,6 +78,7 @@ export default function RootLayout({ children }) {
           Aller au contenu
         </a>
         <header className="site">
+          <SideMenu />
           <a className="brand" href="/">
             <Logo size={30} />
             Avant Mon CT
