@@ -84,12 +84,8 @@ export default function RootLayout({ children }) {
           <SearchBar />
           <nav>
             <a href="/checklist">Ma checklist</a>
-            <a href="/points-controle">Ce qui est vérifié</a>
-            <a href="/entretien">Bien l'entretenir</a>
-            <a href="/rappels">Un rappel connu ?</a>
             <a href="/centres">Trouver un centre</a>
-            <a href="/actualites">Quoi de neuf ?</a>
-            <a href="/rappel">Prévenez-moi</a>
+            <a href="/rappels">Un rappel connu ?</a>
             <a
               href="https://creneauct.fr"
               target="_blank"
@@ -131,13 +127,17 @@ export default function RootLayout({ children }) {
                 Service-public.fr
               </a>
             </p>
-            <p className="sources" style={{ marginTop: "0.4rem" }}>
-              <a href="/a-propos">À propos</a> ·{" "}
-              <a href="/vente-occasion">Vente d&apos;occasion</a> ·{" "}
-              <a href="/mentions-legales">Mentions légales</a> ·{" "}
-              <a href="/cgu">CGU</a> ·{" "}
+            <nav className="footer-links">
+              <a href="/points-controle">Ce qui est vérifié</a>
+              <a href="/entretien">Bien l'entretenir</a>
+              <a href="/actualites">Quoi de neuf ?</a>
+              <a href="/rappel">Prévenez-moi avant l'échéance</a>
+              <a href="/vente-occasion">Vendre d&apos;occasion</a>
+              <a href="/a-propos">À propos</a>
+              <a href="/mentions-legales">Mentions légales</a>
+              <a href="/cgu">CGU</a>
               <a href="/confidentialite">Confidentialité</a>
-            </p>
+            </nav>
           </div>
         </footer>
       </body>
