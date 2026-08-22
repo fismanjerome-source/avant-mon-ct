@@ -1,4 +1,4 @@
-const SITE_URL = "https://avant-mon-ct.fr";
+const SITE_URL = "https://avant.creneauct.fr";
 
 export default function sitemap() {
   const routes = [

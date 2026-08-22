@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://avant-mon-ct.fr/sitemap.xml",
+    sitemap: "https://avant.creneauct.fr/sitemap.xml",
   };
 }

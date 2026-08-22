@@ -24,8 +24,7 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
-// TODO: remplacer par le vrai nom de domaine une fois déployé/acheté.
-const SITE_URL = "https://avant-mon-ct.fr";
+const SITE_URL = "https://avant.creneauct.fr";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),

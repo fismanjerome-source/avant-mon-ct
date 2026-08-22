@@ -164,12 +164,12 @@ donc une sélection vérifiée manuellement en attendant.
   hébergeur) avant toute mise en ligne réelle
 - **Lancement du site conditionné à avoir assez de centres partenaires sur
   Créneau CT** (décision prise avec l'utilisateur)
-- Acheter un nom de domaine et le remplacer dans `app/layout.js`,
-  `app/robots.js` et `app/sitemap.js` (actuellement `avant-mon-ct.fr` en
-  placeholder)
+- ~~Nom de domaine~~ fait → **https://avant.creneauct.fr** (sous-domaine de
+  Créneau CT, CNAME chez OVH vers Render), `SITE_URL` mis à jour dans
+  `app/layout.js`, `app/sitemap.js`, `app/robots.js`
 - Éventuellement : connecter l'API Légifrance PISTE si vous créez un compte
-- Déploiement (Render + Turso, comme Créneau CT — corrigé après vérification,
-  Créneau CT n'est pas sur Vercel contrairement à ce que j'avais supposé)
+- ~~Déploiement~~ fait → **Render + Turso**, en ligne et testé (checklist,
+  rappels, centres, formulaire de rappel qui écrit bien dans la vraie base)
 - Une fois en ligne : soumettre le site à la Search Console Google, demander
   quelques liens depuis des sites pertinents (mairie, centres partenaires) —
   le contenu et les données structurées sont prêts, mais le référencement
