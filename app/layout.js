@@ -1,26 +1,26 @@
-import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
+import { Outfit, DM_Sans, Fira_Code } from "next/font/google";
 import SearchBar from "./components/SearchBar";
 import Logo from "./components/Logo";
 import SideMenu from "./components/SideMenu";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-body",
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${spaceMono.variable}`}
+      className={`${outfit.variable} ${dmSans.variable} ${firaCode.variable}`}
     >
       <body>
         <script
