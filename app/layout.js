@@ -103,13 +103,14 @@ export default function RootLayout({ children }) {
           <div className="wrap">
             <strong>Avant Mon CT</strong>
             <p className="disclaimer">
-              Le site gratuit qui vous aide à préparer votre contrôle
-              technique, édité par la même équipe que{" "}
+              Un site gratuit pour préparer votre contrôle technique, édité
+              par la même équipe que{" "}
               <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
                 Créneau CT
               </a>
-              . N'est ni un centre de contrôle technique, ni affilié à
-              l'UTAC-OTC.
+              . Il reste toutefois indépendant des organismes officiels :
+              ce n'est ni un centre de contrôle technique, ni un site
+              affilié à l'UTAC-OTC.
             </p>
             <p className="sources">
               Chiffres officiels :{" "}
