@@ -93,17 +93,47 @@ export async function GET(request) {
       ? `cat_vehicule_libelle="Cyclomoteur"`
       : `cat_vehicule_libelle="Voiture particulière"`;
 
-  const where = `code_departement="${departement}" and ${categorieFilter}`;
-  const url = `${DATASET_URL}?where=${encodeURIComponent(where)}&limit=20`;
-
-  const [res, partenairesCT] = await Promise.all([
-    fetch(url, { next: { revalidate: 3600 } }),
-    centresCreneauCT(departement),
-  ]);
-  if (!res.ok) {
-    return Response.json({ error: "Annuaire indisponible." }, { status: 502 });
+  // Avec des coordonnées connues, on filtre par vrai rayon géographique
+  // (ODSQL distance()) plutôt que par département entier limité à 20
+  // résultats pris dans un ordre arbitraire : sur un gros département,
+  // cette limite pouvait renvoyer des centres à 50 km tout en omettant des
+  // centres à moins de 10 km qui n'étaient simplement pas dans le lot
+  // récupéré. Le rayon s'élargit automatiquement si la zone est peu dense.
+  async function chercherParRayon(rayonKm) {
+    const geo = `distance(coordgeo, geom'POINT(${lonRecherche} ${latRecherche})', ${rayonKm}km)`;
+    const where = `${geo} and ${categorieFilter}`;
+    const url = `${DATASET_URL}?where=${encodeURIComponent(where)}&limit=100`;
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
+    return res.json();
   }
-  const data = await res.json();
+
+  const partenairesCTPromise = centresCreneauCT(departement);
+
+  let data;
+  if (aCoordonnees) {
+    for (const rayonKm of [20, 50, 100, 200]) {
+      data = await chercherParRayon(rayonKm);
+      if (data === null) {
+        return Response.json({ error: "Annuaire indisponible." }, { status: 502 });
+      }
+      if (data.total_count >= 5 || rayonKm === 200) break;
+    }
+  }
+
+  const partenairesCT = await partenairesCTPromise;
+
+  if (!aCoordonnees) {
+    // Pas de ville sélectionnée dans la liste (code postal tapé à la
+    // main) : on retombe sur l'ancien filtre par département.
+    const where = `code_departement="${departement}" and ${categorieFilter}`;
+    const url = `${DATASET_URL}?where=${encodeURIComponent(where)}&limit=100`;
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) {
+      return Response.json({ error: "Annuaire indisponible." }, { status: 502 });
+    }
+    data = await res.json();
+  }
 
   // Le champ "commune" de l'annuaire officiel contient parfois la même
   // valeur répétée plusieurs fois séparée par "/" (une entrée par

@@ -206,13 +206,16 @@ export default function CentresClient({ initialCodePostal }) {
         <div style={{ marginTop: "2rem" }}>
           <div className="section-title">
             <h2>
-              {result.total} centre{result.total !== 1 ? "s" : ""} dans le département
+              {result.centres?.length || 0} centre{(result.centres?.length || 0) !== 1 ? "s" : ""}
+              {result.centres?.[0]?.distanceKm != null
+                ? ` autour de ${libelleRecherche.split(" (")[0]}`
+                : " dans le département"}
               {libelleRecherche ? ` (recherche : ${libelleRecherche})` : ""}
             </h2>
           </div>
           {result.centres?.[0]?.distanceKm != null && (
             <p style={{ marginTop: "-0.5rem", marginBottom: "1rem", color: "var(--ink-faint)", fontSize: "0.88rem" }}>
-              Triés du plus proche au plus éloigné de {libelleRecherche.split(" (")[0]}.
+              Tous les centres trouvés à proximité, triés du plus proche au plus éloigné de {libelleRecherche.split(" (")[0]}.
             </p>
           )}
 
@@ -223,7 +226,7 @@ export default function CentresClient({ initialCodePostal }) {
           )}
 
           {result.centres &&
-            result.centres.slice(0, 15).map((c, i) => (
+            result.centres.map((c, i) => (
               <div key={i} className="centre-resultat">
                 <span className="centre-resultat-rang">{i + 1}</span>
                 <div className="centre-resultat-corps">
