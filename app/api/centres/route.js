@@ -46,6 +46,20 @@ function correspond(centreDgccrf, centreCt) {
   return motsA.some((mot) => motsB.has(mot));
 }
 
+// Distance à vol d'oiseau entre deux points GPS, en kilomètres (formule de
+// Haversine). Suffisant pour trier une liste de centres par proximité —
+// pas besoin d'un vrai calcul d'itinéraire routier pour ça.
+function distanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const toRad = (deg) => (deg * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 async function centresCreneauCT(departement) {
   try {
     const res = await fetch(`${CT_API_URL}?cp=${departement}`, {
@@ -65,6 +79,9 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const codePostal = searchParams.get("codePostal");
   const type = searchParams.get("type") === "moto" ? "moto" : "voiture";
+  const latRecherche = parseFloat(searchParams.get("lat"));
+  const lonRecherche = parseFloat(searchParams.get("lon"));
+  const aCoordonnees = Number.isFinite(latRecherche) && Number.isFinite(lonRecherche);
 
   if (!codePostal || codePostal.length < 2) {
     return Response.json({ error: "Code postal requis." }, { status: 400 });
@@ -99,6 +116,8 @@ export async function GET(request) {
 
   const centres = (data.results || [])
     .map((c) => {
+      const lat = parseFloat(c.latitude);
+      const lon = parseFloat(c.longitude);
       const centreDgccrf = {
         nom: premiereValeur(c.cct_denomination),
         adresse: premiereValeur(c.cct_adresse),
@@ -106,6 +125,10 @@ export async function GET(request) {
         commune: premiereValeur(c.cct_commune),
         telephone: premiereValeur(c.cct_tel),
         url: c.cct_url,
+        distanceKm:
+          aCoordonnees && Number.isFinite(lat) && Number.isFinite(lon)
+            ? Math.round(distanceKm(latRecherche, lonRecherche, lat, lon) * 10) / 10
+            : null,
       };
       const centreCt = partenairesCT.find((p) => correspond(centreDgccrf, p));
       return {
@@ -115,8 +138,15 @@ export async function GET(request) {
           : null,
       };
     })
-    // rapproche du code postal recherché en priorité
     .sort((a, b) => {
+      // Tri par distance réelle quand on connaît les coordonnées de la
+      // ville recherchée (les centres sans coordonnées passent en dernier).
+      if (aCoordonnees) {
+        if (a.distanceKm == null) return 1;
+        if (b.distanceKm == null) return -1;
+        return a.distanceKm - b.distanceKm;
+      }
+      // Sinon, on retombe sur le rapprochement par code postal exact.
       const aMatch = a.codePostal === codePostal ? 0 : 1;
       const bMatch = b.codePostal === codePostal ? 0 : 1;
       return aMatch - bMatch;

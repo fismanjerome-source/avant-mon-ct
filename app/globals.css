@@ -935,6 +935,78 @@ button.primary:disabled {
   font-variant-numeric: tabular-nums;
 }
 
+/* Résultats de recherche de centres */
+.centre-resultat {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border: 1px solid var(--ligne);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+  background: var(--fond);
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.centre-resultat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--bleu-700);
+}
+
+.centre-resultat-rang {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bleu-900), var(--bleu-700));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.centre-resultat-corps {
+  flex: 1;
+  min-width: 0;
+}
+
+.centre-resultat-distance {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--or-bg);
+  color: var(--bleu-900);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.centre-resultat-contact {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.centre-resultat-contact a,
+.centre-resultat-contact span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.centre-resultat-contact a {
+  font-weight: 600;
+}
+
 .info-box {
   border: 1px solid var(--ligne);
   border-left: 4px solid var(--or);

@@ -11,15 +11,18 @@ export default function CentresClient({ initialCodePostal }) {
   const [status, setStatus] = useState("idle");
   const [result, setResult] = useState(null);
   const [libelleRecherche, setLibelleRecherche] = useState("");
+  const [coords, setCoords] = useState(null); // { lat, lon } de la ville choisie
   const boxRef = useRef(null);
 
-  async function runSearch(cp, t) {
+  async function runSearch(cp, t, coordonnees) {
     if (!cp || cp.length < 2) return;
     setStatus("loading");
     try {
-      const res = await fetch(
-        `/api/centres?codePostal=${encodeURIComponent(cp)}&type=${t}`
-      );
+      let url = `/api/centres?codePostal=${encodeURIComponent(cp)}&type=${t}`;
+      if (coordonnees) {
+        url += `&lat=${coordonnees.lat}&lon=${coordonnees.lon}`;
+      }
+      const res = await fetch(url);
       const data = await res.json();
       setResult(data);
       setStatus("done");
@@ -67,6 +70,8 @@ export default function CentresClient({ initialCodePostal }) {
   function choisirVille(ville) {
     setQuery(`${ville.nom} (${ville.codePostal})`);
     setCodePostal(ville.codePostal);
+    setCoords(ville.lat != null && ville.lon != null ? { lat: ville.lat, lon: ville.lon } : null);
+    setLibelleRecherche(`${ville.nom} (${ville.codePostal})`);
     setVilles([]);
     setDropdownOuvert(false);
   }
@@ -86,13 +91,17 @@ export default function CentresClient({ initialCodePostal }) {
     // Garde le libellé "Ville (code postal)" déjà connu s'il correspond
     // encore à ce code, plutôt que de le remplacer par le code postal nu.
     setLibelleRecherche((prev) => (prev && prev.includes(cp) ? prev : cp));
-    await runSearch(cp, type);
+    // Un code postal tapé à la main (sans passer par la liste) n'a pas de
+    // coordonnées : le tri retombe sur le rapprochement par code postal.
+    const coordonneesValides = query.trim() === `${cp}` ? null : coords;
+    await runSearch(cp, type, coordonneesValides);
   }
 
   async function choisirVilleEtChercher(ville) {
     choisirVille(ville);
     setLibelleRecherche(`${ville.nom} (${ville.codePostal})`);
-    await runSearch(ville.codePostal, type);
+    const coordonnees = ville.lat != null && ville.lon != null ? { lat: ville.lat, lon: ville.lon } : null;
+    await runSearch(ville.codePostal, type, coordonnees);
   }
 
   return (
@@ -201,6 +210,11 @@ export default function CentresClient({ initialCodePostal }) {
               {libelleRecherche ? ` (recherche : ${libelleRecherche})` : ""}
             </h2>
           </div>
+          {result.centres?.[0]?.distanceKm != null && (
+            <p style={{ marginTop: "-0.5rem", marginBottom: "1rem", color: "var(--ink-faint)", fontSize: "0.88rem" }}>
+              Triés du plus proche au plus éloigné de {libelleRecherche.split(" (")[0]}.
+            </p>
+          )}
 
           {result.centres && result.centres.length === 0 && (
             <div className="result-banner warn">
@@ -210,43 +224,43 @@ export default function CentresClient({ initialCodePostal }) {
 
           {result.centres &&
             result.centres.slice(0, 15).map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  border: "1px solid var(--ligne)",
-                  borderRadius: 12,
-                  padding: "1.1rem 1.3rem",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "0.75rem" }}>
-                  <strong>{c.nom}</strong>
-                  {c.reservableSurCreneauCT && (
-                    <span className="badge" style={{ whiteSpace: "nowrap" }}>
-                      Réservable sur Créneau CT
-                    </span>
-                  )}
-                </div>
-                <p style={{ margin: "0.3rem 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
-                  {c.adresse}, {c.codePostal} {c.commune}
-                </p>
-                <div style={{ display: "flex", gap: "1rem", fontSize: "0.88rem", alignItems: "center" }}>
-                  {c.telephone && <span>{c.telephone}</span>}
-                  {c.url && (
-                    <a href={c.url} target="_blank" rel="noopener noreferrer">
-                      Site web
-                    </a>
-                  )}
-                  {c.reservableSurCreneauCT && (
-                    <a
-                      href={c.reservableSurCreneauCT}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ fontWeight: 700 }}
-                    >
-                      Prendre RDV
-                    </a>
-                  )}
+              <div key={i} className="centre-resultat">
+                <span className="centre-resultat-rang">{i + 1}</span>
+                <div className="centre-resultat-corps">
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap" }}>
+                    <strong>{c.nom}</strong>
+                    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                      {c.distanceKm != null && (
+                        <span className="centre-resultat-distance">📍 {c.distanceKm} km</span>
+                      )}
+                      {c.reservableSurCreneauCT && (
+                        <span className="badge" style={{ whiteSpace: "nowrap" }}>
+                          Réservable sur Créneau CT
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <p style={{ margin: "0.3rem 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
+                    {c.adresse}, {c.codePostal} {c.commune}
+                  </p>
+                  <div className="centre-resultat-contact">
+                    {c.telephone && <span>📞 {c.telephone}</span>}
+                    {c.url && (
+                      <a href={c.url} target="_blank" rel="noopener noreferrer">
+                        🌐 Site web
+                      </a>
+                    )}
+                    {c.reservableSurCreneauCT && (
+                      <a
+                        href={c.reservableSurCreneauCT}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "var(--or)" }}
+                      >
+                        📅 Prendre RDV
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
