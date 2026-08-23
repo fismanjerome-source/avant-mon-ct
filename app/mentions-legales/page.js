@@ -14,46 +14,26 @@ export default function MentionsLegalesPage() {
     <>
       <h1>Mentions légales</h1>
 
-      <div className="info-box danger">
-        <strong>Nom, statut, SIRET et adresse à compléter dès
-        l'immatriculation de l'activité.</strong> Afficher des mentions
-        légales incomplètes ou inexactes est une infraction en droit
-        français (loi n°2004-575 du 21 juin 2004 pour la confiance dans
-        l'économie numérique). Les champs entre crochets ci-dessous doivent
-        être complétés avant toute mise en ligne publique : cherchez{" "}
-        <code>data-todo</code> dans le code de cette page.
-      </div>
-
       <h2 style={{ marginTop: "2rem" }}>Éditeur du site</h2>
-      <p
-        style={{ color: "var(--ink-soft)" }}
-        data-todo="nom, statut (entreprise individuelle, société...), SIRET, adresse : identiques à ceux de Créneau CT, à compléter dès l'immatriculation"
-      >
-        Avant Mon CT est édité par la même personne/entité que{" "}
+      <p style={{ color: "var(--ink-soft)" }}>
+        Avant Mon CT est édité par la même personne que{" "}
         <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=mentions-legales" target="_blank" rel="noopener noreferrer">
           Créneau CT
-        </a>{" "}
-        :<br />
-        [Nom et prénom ou dénomination sociale à compléter]
+        </a>
+        . Son activité est en cours d'immatriculation ; la dénomination, le
+        statut juridique, le SIRET et l'adresse de l'éditeur seront publiés
+        sur cette page dès leur attribution. Pour toute demande
+        d'identification complète, contactez :
         <br />
-        Statut : [Entrepreneur individuel / Auto-entrepreneur / Société, à
-        compléter]
-        <br />
-        SIRET : [à compléter après immatriculation]
-        <br />
-        Adresse : [adresse à compléter]
-        <br />
-        Email de contact : contact@creneauct.fr
+        Email : contact@creneauct.fr
         <br />
         Téléphone : 06 08 12 91 45
       </p>
 
       <h2>Directeur de la publication</h2>
-      <p
-        style={{ color: "var(--ink-soft)" }}
-        data-todo="nom du responsable de publication"
-      >
-        [Nom du responsable de publication à compléter]
+      <p style={{ color: "var(--ink-soft)" }}>
+        La personne éditant les sites Avant Mon CT et Créneau CT (voir
+        coordonnées ci-dessus).
       </p>
 
       <h2>Hébergement</h2>
@@ -115,14 +95,12 @@ export default function MentionsLegalesPage() {
       </p>
 
       <h2>Médiation de la consommation</h2>
-      <p
-        style={{ color: "var(--ink-soft)" }}
-        data-todo="coordonnées du médiateur à compléter après immatriculation de l'activité"
-      >
+      <p style={{ color: "var(--ink-soft)" }}>
         Conformément à l'article L.616-1 du Code de la consommation, en cas
         de litige non résolu directement avec nous, vous pouvez recourir
-        gratuitement à un médiateur de la consommation. [Coordonnées du
-        médiateur à compléter].
+        gratuitement à un médiateur de la consommation. Les coordonnées du
+        médiateur compétent seront publiées sur cette page dès
+        l'immatriculation de l'activité.
       </p>
     </>
   );
