@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { MARQUES_VOITURE, MARQUES_MOTO } from "../../lib/vehicules";
 
-export default function RappelsClient() {
-  const searchParams = useSearchParams();
-  const [type, setType] = useState("voiture");
-  const [marque, setMarque] = useState("");
+export default function RappelsClient({ initialMarque }) {
+  const [type, setType] = useState(
+    initialMarque && MARQUES_MOTO.some((m) => m.toLowerCase() === initialMarque.toLowerCase())
+      ? "moto"
+      : "voiture"
+  );
+  const [marque, setMarque] = useState(initialMarque || "");
   const [modele, setModele] = useState("");
   const [status, setStatus] = useState("idle");
   const [result, setResult] = useState(null);
@@ -33,12 +35,8 @@ export default function RappelsClient() {
   }
 
   useEffect(() => {
-    const prefill = searchParams.get("marque");
-    if (prefill) {
-      const isMoto = MARQUES_MOTO.some((m) => m.toLowerCase() === prefill.toLowerCase());
-      setType(isMoto ? "moto" : "voiture");
-      setMarque(prefill);
-      runSearch(prefill, "");
+    if (initialMarque) {
+      runSearch(initialMarque, "");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

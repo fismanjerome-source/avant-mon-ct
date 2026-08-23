@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
-export default function CentresClient() {
-  const searchParams = useSearchParams();
+export default function CentresClient({ initialCodePostal }) {
   const [type, setType] = useState("voiture");
-  const [codePostal, setCodePostal] = useState("");
+  const [codePostal, setCodePostal] = useState(initialCodePostal || "");
   const [status, setStatus] = useState("idle");
   const [result, setResult] = useState(null);
 
@@ -26,10 +24,8 @@ export default function CentresClient() {
   }
 
   useEffect(() => {
-    const prefill = searchParams.get("codePostal");
-    if (prefill) {
-      setCodePostal(prefill);
-      runSearch(prefill, type);
+    if (initialCodePostal) {
+      runSearch(initialCodePostal, type);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

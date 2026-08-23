@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import CentresClient from "./CentresClient";
 
 export const metadata = {
@@ -13,10 +12,7 @@ export const metadata = {
   },
 };
 
-export default function CentresPage() {
-  return (
-    <Suspense fallback={null}>
-      <CentresClient />
-    </Suspense>
-  );
+export default async function CentresPage({ searchParams }) {
+  const params = await searchParams;
+  return <CentresClient initialCodePostal={params?.codePostal} />;
 }

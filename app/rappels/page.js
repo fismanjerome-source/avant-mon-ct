@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import RappelsClient from "./RappelsClient";
 
 export const metadata = {
@@ -13,10 +12,7 @@ export const metadata = {
   },
 };
 
-export default function RappelsPage() {
-  return (
-    <Suspense fallback={null}>
-      <RappelsClient />
-    </Suspense>
-  );
+export default async function RappelsPage({ searchParams }) {
+  const params = await searchParams;
+  return <RappelsClient initialMarque={params?.marque} />;
 }
