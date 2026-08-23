@@ -26,6 +26,11 @@ export const metadata = {
   description:
     "Ce que dit la loi sur le contrôle technique lors de la vente d'un véhicule d'occasion : délai de 6 mois, exceptions, et cas particuliers (électrique, collection, importé).",
   alternates: { canonical: "/vente-occasion" },
+  openGraph: {
+    title: "Vendre ou acheter une voiture d'occasion : le contrôle technique obligatoire — Avant Mon CT",
+    description:
+      "Ce que dit la loi sur le contrôle technique lors de la vente d'un véhicule d'occasion : délai de 6 mois, exceptions, et cas particuliers (électrique, collection, importé).",
+  },
 };
 
 export default function VenteOccasionPage() {

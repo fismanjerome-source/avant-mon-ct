@@ -6,6 +6,11 @@ export const metadata = {
   description:
     "La liste complète et organisée des points vérifiés au contrôle technique : 136 points pour une voiture, environ 80 pour une moto, classés par fonction officielle.",
   alternates: { canonical: "/points-controle" },
+  openGraph: {
+    title: "Les 136 points du contrôle technique (voiture et moto) — Avant Mon CT",
+    description:
+      "La liste complète et organisée des points vérifiés au contrôle technique : 136 points pour une voiture, environ 80 pour une moto, classés par fonction officielle.",
+  },
 };
 
 const jsonLd = {

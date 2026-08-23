@@ -3,6 +3,10 @@ export const metadata = {
   description: "Conditions générales d'utilisation du site Avant Mon CT.",
   alternates: { canonical: "/cgu" },
   robots: { index: false, follow: true },
+  openGraph: {
+    title: "Conditions générales d'utilisation — Avant Mon CT",
+    description: "Conditions générales d'utilisation du site Avant Mon CT.",
+  },
 };
 
 export default function CGUPage() {

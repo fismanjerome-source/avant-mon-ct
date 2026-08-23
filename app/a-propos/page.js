@@ -2,6 +2,10 @@ export const metadata = {
   title: "À propos — Avant Mon CT",
   description: "Pourquoi ce site existe, comment il est financé, et d'où viennent ses chiffres.",
   alternates: { canonical: "/a-propos" },
+  openGraph: {
+    title: "À propos — Avant Mon CT",
+    description: "Pourquoi ce site existe, comment il est financé, et d'où viennent ses chiffres.",
+  },
 };
 
 export default function AProposPage() {

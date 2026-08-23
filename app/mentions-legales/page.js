@@ -3,6 +3,10 @@ export const metadata = {
   description: "Mentions légales du site Avant Mon CT.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: true },
+  openGraph: {
+    title: "Mentions légales — Avant Mon CT",
+    description: "Mentions légales du site Avant Mon CT.",
+  },
 };
 
 export default function MentionsLegalesPage() {

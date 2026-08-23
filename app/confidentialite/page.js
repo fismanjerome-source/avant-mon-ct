@@ -3,6 +3,10 @@ export const metadata = {
   description: "Quelles données Avant Mon CT collecte, pourquoi, et comment les supprimer.",
   alternates: { canonical: "/confidentialite" },
   robots: { index: false, follow: true },
+  openGraph: {
+    title: "Politique de confidentialité — Avant Mon CT",
+    description: "Quelles données Avant Mon CT collecte, pourquoi, et comment les supprimer.",
+  },
 };
 
 export default function ConfidentialitePage() {

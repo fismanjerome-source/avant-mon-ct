@@ -63,6 +63,11 @@ export const metadata = {
   description:
     "Entretien quotidien, révisions, conduite, préparation hiver et été : les bons réflexes pour garder votre véhicule en bon état et limiter le risque de contre-visite.",
   alternates: { canonical: "/entretien" },
+  openGraph: {
+    title: "Guide d'entretien : quotidien, révisions, hiver, été — Avant Mon CT",
+    description:
+      "Entretien quotidien, révisions, conduite, préparation hiver et été : les bons réflexes pour garder votre véhicule en bon état et limiter le risque de contre-visite.",
+  },
 };
 
 const jsonLd = {

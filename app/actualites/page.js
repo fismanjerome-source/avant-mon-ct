@@ -30,6 +30,11 @@ export const metadata = {
   description:
     "Les dernières actualités réglementaires et chiffres officiels du contrôle technique en France : calendrier, nouveautés, bilans UTAC-OTC.",
   alternates: { canonical: "/actualites" },
+  openGraph: {
+    title: "Actualités du contrôle technique — Avant Mon CT",
+    description:
+      "Les dernières actualités réglementaires et chiffres officiels du contrôle technique en France : calendrier, nouveautés, bilans UTAC-OTC.",
+  },
 };
 
 export default function ActualitesPage() {

@@ -59,6 +59,11 @@ export const metadata = {
   description:
     "Prix moyen réel, durée, taux de contre-visite, motifs d'échec, délais légaux : le guide complet du contrôle technique voiture et moto en France, avec les chiffres officiels UTAC-OTC et data.economie.gouv.fr.",
   alternates: { canonical: "/guide" },
+  openGraph: {
+    title: "Guide et chiffres officiels du contrôle technique — Avant Mon CT",
+    description:
+      "Prix moyen réel, durée, taux de contre-visite, motifs d'échec, délais légaux : le guide complet du contrôle technique voiture et moto en France, avec les chiffres officiels UTAC-OTC et data.economie.gouv.fr.",
+  },
 };
 
 async function getPrixMoyen() {
