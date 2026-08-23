@@ -160,7 +160,7 @@ export default function PointsControleClient() {
         <p className="sub">Trouvez un créneau disponible près de chez vous.</p>
         </div>
         
-        <a className="btn" href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a className="btn" href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=points-controle" target="_blank" rel="noopener noreferrer">
           Prendre RDV sur Créneau CT
         </a>
       </div>

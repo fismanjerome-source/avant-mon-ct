@@ -113,7 +113,7 @@ export default function RootLayout({ children }) {
             <a href="/centres">Trouver un centre</a>
             <a href="/rappels">Un rappel connu ?</a>
             <a
-              href="https://creneauct.fr"
+              href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=header"
               target="_blank"
               rel="noopener noreferrer"
               className="pill pill-accent"
@@ -129,7 +129,7 @@ export default function RootLayout({ children }) {
             <p className="disclaimer">
               Un site gratuit pour préparer votre contrôle technique, édité
               par la même équipe que{" "}
-              <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+              <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=footer" target="_blank" rel="noopener noreferrer">
                 Créneau CT
               </a>
               . Il reste toutefois indépendant des organismes officiels :

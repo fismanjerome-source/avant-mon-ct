@@ -180,7 +180,7 @@ export default function HomePage() {
             <p className="title">Prêt à passer votre contrôle technique ?</p>
             <p className="sub">Trouvez un créneau disponible près de chez vous via Créneau CT.</p>
           </div>
-          <a className="btn" href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+          <a className="btn" href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=home" target="_blank" rel="noopener noreferrer">
             Prendre RDV sur Créneau CT
           </a>
         </div>

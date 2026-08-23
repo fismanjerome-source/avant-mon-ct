@@ -36,7 +36,7 @@ export default function CGUPage() {
       <h2>3. Éditeur et lien avec Créneau CT</h2>
       <p style={{ color: "var(--ink-soft)" }}>
         Avant Mon CT est édité par la même entité que{" "}
-        <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=cgu" target="_blank" rel="noopener noreferrer">
           Créneau CT
         </a>{" "}
         (réservation de créneaux de contrôle technique). Le site n'est ni un

@@ -26,7 +26,7 @@ export default function MentionsLegalesPage() {
         data-todo="nom, statut (entreprise individuelle, société...), SIRET, adresse — identiques à ceux de Créneau CT, à compléter dès l'immatriculation"
       >
         Avant Mon CT est édité par la même personne/entité que{" "}
-        <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=mentions-legales" target="_blank" rel="noopener noreferrer">
           Créneau CT
         </a>{" "}
         :<br />
@@ -78,7 +78,7 @@ export default function MentionsLegalesPage() {
       <p style={{ color: "var(--ink-soft)" }}>
         Avant Mon CT est un site d'information gratuit sur le contrôle
         technique automobile en France, édité par la même entité que{" "}
-        <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=mentions-legales" target="_blank" rel="noopener noreferrer">
           Créneau CT
         </a>{" "}
         (réservation de créneaux de contrôle technique). Il n'est ni un

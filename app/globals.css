@@ -675,6 +675,16 @@ footer.site .sources a {
   font-size: 0.98rem;
 }
 
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--vert);
+  background: var(--vert-bg);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
 .checklist-item .label .badge {
   font-family: var(--font-mono);
   font-size: 0.7rem;

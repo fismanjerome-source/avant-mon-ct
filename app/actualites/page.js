@@ -86,7 +86,7 @@ export default function ActualitesPage() {
         <p className="sub">Checklist, rappels constructeur et centres agréés, gratuitement.</p>
         </div>
         
-        <a className="btn" href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a className="btn" href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=actualites" target="_blank" rel="noopener noreferrer">
           Prendre RDV sur Créneau CT
         </a>
       </div>

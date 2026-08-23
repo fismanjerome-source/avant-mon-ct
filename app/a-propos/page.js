@@ -36,7 +36,7 @@ export default function AProposPage() {
       </div>
       <p style={{ color: "var(--ink-soft)" }}>
         Avant Mon CT est édité par la même entité que{" "}
-        <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=a-propos" target="_blank" rel="noopener noreferrer">
           <strong>Créneau CT</strong>
         </a>
         , une plateforme de réservation de créneaux de contrôle technique.

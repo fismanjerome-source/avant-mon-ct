@@ -118,15 +118,32 @@ export default function CentresClient() {
                   marginBottom: "0.75rem",
                 }}
               >
-                <strong>{c.nom}</strong>
+                <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "0.75rem" }}>
+                  <strong>{c.nom}</strong>
+                  {c.reservableSurCreneauCT && (
+                    <span className="badge" style={{ whiteSpace: "nowrap" }}>
+                      Réservable sur Créneau CT
+                    </span>
+                  )}
+                </div>
                 <p style={{ margin: "0.3rem 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
                   {c.adresse}, {c.codePostal} {c.commune}
                 </p>
-                <div style={{ display: "flex", gap: "1rem", fontSize: "0.88rem" }}>
+                <div style={{ display: "flex", gap: "1rem", fontSize: "0.88rem", alignItems: "center" }}>
                   {c.telephone && <span>{c.telephone}</span>}
                   {c.url && (
                     <a href={c.url} target="_blank" rel="noopener noreferrer">
                       Site web →
+                    </a>
+                  )}
+                  {c.reservableSurCreneauCT && (
+                    <a
+                      href={c.reservableSurCreneauCT}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontWeight: 700 }}
+                    >
+                      Prendre RDV →
                     </a>
                   )}
                 </div>
@@ -148,7 +165,7 @@ export default function CentresClient() {
         </p>
         </div>
         
-        <a className="btn" href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a className="btn" href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=centres" target="_blank" rel="noopener noreferrer">
           Prendre RDV sur Créneau CT
         </a>
       </div>

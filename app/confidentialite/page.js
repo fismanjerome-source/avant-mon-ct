@@ -61,7 +61,7 @@ export default function ConfidentialitePage() {
 
       <p className="source-note">
         Avant Mon CT est édité par la même entité que{" "}
-        <a href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=confidentialite" target="_blank" rel="noopener noreferrer">
           Créneau CT
         </a>{" "}
         — voir les{" "}

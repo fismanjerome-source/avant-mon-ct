@@ -90,7 +90,7 @@ export default function RappelClient() {
         <p className="sub">Réservez votre contrôle technique dès maintenant.</p>
         </div>
         
-        <a className="btn" href="https://creneauct.fr" target="_blank" rel="noopener noreferrer">
+        <a className="btn" href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=rappel" target="_blank" rel="noopener noreferrer">
           Prendre RDV sur Créneau CT
         </a>
       </div>
