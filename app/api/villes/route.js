@@ -6,9 +6,12 @@ export async function GET(request) {
     return Response.json({ villes: [] });
   }
 
-  const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(
+  // geo.api.gouv.fr (officiel, INSEE) plutôt que la recherche d'adresses BAN :
+  // avec boost=population, "rou" remonte bien Rouen et Roubaix en tête, alors
+  // que la BAN classait des hameaux de moins de 300 habitants avant Rouen.
+  const url = `https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(
     q
-  )}&type=municipality&limit=6`;
+  )}&boost=population&fields=nom,codesPostaux&limit=6`;
 
   const res = await fetch(url, { next: { revalidate: 3600 } });
   if (!res.ok) {
@@ -16,9 +19,9 @@ export async function GET(request) {
   }
   const data = await res.json();
 
-  const villes = (data.features || []).map((f) => ({
-    nom: f.properties.city,
-    codePostal: f.properties.postcode,
+  const villes = (Array.isArray(data) ? data : []).map((commune) => ({
+    nom: commune.nom,
+    codePostal: commune.codesPostaux?.[0] || "",
   }));
 
   return Response.json({ villes });

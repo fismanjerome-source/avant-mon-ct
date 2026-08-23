@@ -1,12 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function CentresClient({ initialCodePostal }) {
   const [type, setType] = useState("voiture");
   const [codePostal, setCodePostal] = useState(initialCodePostal || "");
+  const [query, setQuery] = useState(initialCodePostal || "");
+  const [villes, setVilles] = useState([]);
+  const [dropdownOuvert, setDropdownOuvert] = useState(false);
   const [status, setStatus] = useState("idle");
   const [result, setResult] = useState(null);
+  const [libelleRecherche, setLibelleRecherche] = useState("");
+  const boxRef = useRef(null);
 
   async function runSearch(cp, t) {
     if (!cp || cp.length < 2) return;
@@ -30,9 +35,64 @@ export default function CentresClient({ initialCodePostal }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Autocomplétion des villes (même source que la recherche du header).
+  useEffect(() => {
+    const q = query.trim();
+    if (q.length < 2 || q === `${codePostal}`) {
+      setVilles([]);
+      return;
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      fetch(`/api/villes?q=${encodeURIComponent(q)}`, { signal: controller.signal })
+        .then((res) => (res.ok ? res.json() : { villes: [] }))
+        .then((data) => setVilles(data.villes || []))
+        .catch(() => {});
+    }, 250);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
+  useEffect(() => {
+    function onClickOutside(e) {
+      if (boxRef.current && !boxRef.current.contains(e.target)) setDropdownOuvert(false);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
+  function choisirVille(ville) {
+    setQuery(`${ville.nom} (${ville.codePostal})`);
+    setCodePostal(ville.codePostal);
+    setVilles([]);
+    setDropdownOuvert(false);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    await runSearch(codePostal, type);
+    // Code postal déjà résolu par un choix dans la liste, ou saisi directement.
+    const cp = /^\d{5}$/.test(query.trim()) ? query.trim() : codePostal;
+    if (!/^\d{5}$/.test(cp)) {
+      // Rien de sélectionné et le texte tapé n'est pas un code postal :
+      // on prend la première suggestion affichée par dépit, sinon on abandonne.
+      if (villes[0]) return choisirVilleEtChercher(villes[0]);
+      return;
+    }
+    setCodePostal(cp);
+    setDropdownOuvert(false);
+    // Garde le libellé "Ville (code postal)" déjà connu s'il correspond
+    // encore à ce code, plutôt que de le remplacer par le code postal nu.
+    setLibelleRecherche((prev) => (prev && prev.includes(cp) ? prev : cp));
+    await runSearch(cp, type);
+  }
+
+  async function choisirVilleEtChercher(ville) {
+    choisirVille(ville);
+    setLibelleRecherche(`${ville.nom} (${ville.codePostal})`);
+    await runSearch(ville.codePostal, type);
   }
 
   return (
@@ -74,17 +134,59 @@ export default function CentresClient({ initialCodePostal }) {
             <option value="moto">Moto / scooter</option>
           </select>
         </div>
-        <div style={{ flex: 1, minWidth: 160 }}>
-          <label>Code postal</label>
+        <div ref={boxRef} style={{ position: "relative", flex: 1, minWidth: 200 }}>
+          <label htmlFor="ville-ou-cp">Ville ou code postal</label>
           <input
+            id="ville-ou-cp"
             type="text"
-            placeholder="75001"
-            value={codePostal}
-            onChange={(e) => setCodePostal(e.target.value)}
-            maxLength={5}
+            placeholder="Rouen, Lyon, 75001..."
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setCodePostal("");
+              setDropdownOuvert(true);
+            }}
+            onFocus={() => setDropdownOuvert(true)}
+            autoComplete="off"
             required
             style={{ width: "100%" }}
           />
+
+          {dropdownOuvert && villes.length > 0 && (
+            <div
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                right: 0,
+                marginTop: "0.3rem",
+                background: "white",
+                border: "1px solid var(--ligne)",
+                borderRadius: 12,
+                boxShadow: "var(--shadow-md)",
+                zIndex: 30,
+                maxHeight: 280,
+                overflowY: "auto",
+              }}
+            >
+              {villes.map((v, i) => (
+                <div
+                  key={`${v.nom}-${v.codePostal}-${i}`}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => choisirVille(v)}
+                  style={{
+                    padding: "0.6rem 1rem",
+                    cursor: "pointer",
+                    fontSize: "0.92rem",
+                    borderBottom: i < villes.length - 1 ? "1px solid var(--ligne)" : "none",
+                  }}
+                >
+                  <strong>{v.nom}</strong>{" "}
+                  <span style={{ color: "var(--ink-faint)" }}>({v.codePostal})</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <button type="submit" className="primary" disabled={status === "loading"}>
           {status === "loading" ? "Recherche..." : "Chercher"}
@@ -94,7 +196,10 @@ export default function CentresClient({ initialCodePostal }) {
       {status === "done" && result && (
         <div style={{ marginTop: "2rem" }}>
           <div className="section-title">
-            <h2>{result.total} centre{result.total !== 1 ? "s" : ""} dans le département</h2>
+            <h2>
+              {result.total} centre{result.total !== 1 ? "s" : ""} dans le département
+              {libelleRecherche ? ` (recherche : ${libelleRecherche})` : ""}
+            </h2>
           </div>
 
           {result.centres && result.centres.length === 0 && (
