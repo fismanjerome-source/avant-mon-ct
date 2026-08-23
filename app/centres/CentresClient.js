@@ -41,7 +41,7 @@ export default function CentresClient() {
 
   return (
     <>
-      <span className="eyebrow">Annuaire officiel — data.economie.gouv.fr</span>
+      <span className="eyebrow">Annuaire officiel (data.economie.gouv.fr)</span>
       <h1>Trouver un centre de contrôle technique agréé</h1>
       <p className="lede">
         Recherche dans l'annuaire officiel des 6 100+ centres agréés en
@@ -133,7 +133,7 @@ export default function CentresClient() {
                   {c.telephone && <span>{c.telephone}</span>}
                   {c.url && (
                     <a href={c.url} target="_blank" rel="noopener noreferrer">
-                      Site web →
+                      Site web
                     </a>
                   )}
                   {c.reservableSurCreneauCT && (
@@ -143,7 +143,7 @@ export default function CentresClient() {
                       rel="noopener noreferrer"
                       style={{ fontWeight: 700 }}
                     >
-                      Prendre RDV →
+                      Prendre RDV
                     </a>
                   )}
                 </div>

@@ -26,7 +26,7 @@ export default function AProposPage() {
         technique en France), API officielles de la DGCCRF (RappelConso,
         annuaire des centres agréés, prix des contrôles techniques),
         Légifrance et service-public.fr pour les références juridiques. Nous
-        ne publions aucun chiffre inventé — quand une donnée précise n'existe
+        ne publions aucun chiffre inventé : quand une donnée précise n'existe
         pas en accès public, nous le disons explicitement plutôt que de
         l'estimer sans le préciser.
       </p>
@@ -42,8 +42,8 @@ export default function AProposPage() {
         , une plateforme de réservation de créneaux de contrôle technique.
         Les outils gratuits de ce site (checklist, rappels constructeur,
         recherche de centres) s'utilisent gratuitement et sans compte à
-        créer, sans obligation de passer par Créneau CT — le lien "Prendre
-        RDV" en fin de page est une option, pas un passage obligé.
+        créer, sans obligation de passer par Créneau CT. Le lien « Prendre
+        RDV » en fin de page est une option, pas un passage obligé.
       </p>
 
       <div className="section-title">

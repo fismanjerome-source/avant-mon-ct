@@ -620,6 +620,19 @@ footer.site .sources a {
   color: var(--bleu-700);
 }
 
+.card .tag::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  margin-left: 0.3rem;
+  transition: margin-left 0.18s ease;
+}
+
+.card:hover .tag::after {
+  content: "→";
+  width: auto;
+}
+
 /* Checklist */
 .checklist-progress {
   height: 8px;

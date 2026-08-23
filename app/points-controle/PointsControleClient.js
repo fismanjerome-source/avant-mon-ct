@@ -21,7 +21,7 @@ export default function PointsControleClient() {
 
   return (
     <>
-      <span className="eyebrow">Réglementation officielle — arrêté du 18 juin 1991 modifié</span>
+      <span className="eyebrow">Réglementation officielle (arrêté du 18 juin 1991 modifié)</span>
       <h1>
         Les {type === "voiture" ? "136" : "80"} points du contrôle technique
       </h1>
@@ -133,7 +133,7 @@ export default function PointsControleClient() {
       </div>
 
       <p className="source-note" style={{ marginTop: "1.5rem" }}>
-        Exemples de points par fonction, non exhaustifs — le nombre exact de
+        Exemples de points par fonction, non exhaustifs. Le nombre exact de
         points par fonction n'est pas publié en détail par l'organisme
         officiel. Classification officielle en 9 fonctions selon l'arrêté du
         18 juin 1991 modifié. Pour la liste complète et à jour, consultez{" "}
@@ -150,7 +150,7 @@ export default function PointsControleClient() {
         </a>
         <a className="card" href="/entretien">
           <h3>Guide d'entretien</h3>
-          <p>Entretien quotidien, révisions, hiver, été — pour garder un véhicule conforme.</p>
+          <p>Entretien quotidien, révisions, hiver, été : pour garder un véhicule conforme.</p>
         </a>
       </div>
 

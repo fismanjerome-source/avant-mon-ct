@@ -182,22 +182,21 @@ export default async function GuidePage() {
         central du contrôle technique en France.
       </p>
 
-      <div className="info-box">
-        <strong>Bon à savoir.</strong> En cas de contre-visite, vous avez 2
+      <p>
+        <strong>Bon à savoir :</strong> en cas de contre-visite, vous avez 2
         mois pour faire réparer votre véhicule et le représenter, sinon il
         faut repasser un contrôle complet. Rouler avec un contrôle technique
         expiré expose à une amende de 135€ (90€ en paiement rapide) et à une
         possible immobilisation du véhicule.
-      </div>
+      </p>
 
-      <div className="info-box">
-        <strong>Voiture ou moto ?</strong> La périodicité diffère : une
-        voiture est contrôlée 4 ans après sa 1ère immatriculation puis tous
-        les 2 ans ; une moto (catégorie L) tous les 3 ans. Le contrôle moto
-        vérifie environ 80 points, dont 25 propres aux deux-roues (chaîne,
-        fourche, garde-boue). Utilisez la{" "}
-        <a href="/checklist">checklist adaptée à votre véhicule</a>.
-      </div>
+      <p>
+        La périodicité diffère selon le véhicule : une voiture est contrôlée
+        4 ans après sa 1ère immatriculation puis tous les 2 ans, une moto
+        (catégorie L) tous les 3 ans. Le contrôle moto vérifie environ 80
+        points, dont 25 propres aux deux-roues (chaîne, fourche, garde-boue).
+        Utilisez la <a href="/checklist">checklist adaptée à votre véhicule</a>.
+      </p>
 
       <div className="info-box danger">
         <strong>Le contrôle technique doit obligatoirement être réalisé dans
@@ -205,7 +204,7 @@ export default async function GuidePage() {
         sans que le véhicule soit physiquement présenté et inspecté par un
         contrôleur (« contrôle technique de complaisance »), n'a aucune
         valeur légale et constitue un <strong>faux et usage de faux</strong> au
-        sens de l'<strong>article 441-1 du Code pénal</strong> — jusqu'à 3 ans
+        sens de l'<strong>article 441-1 du Code pénal</strong> : jusqu'à 3 ans
         d'emprisonnement et 45 000€ d'amende, pour le centre comme pour le
         conducteur qui l'utilise sciemment. Trouvez un{" "}
         <a href="/centres">centre réellement agréé</a> sur notre annuaire
@@ -218,7 +217,7 @@ export default async function GuidePage() {
       </div>
 
       <p className="lede">
-        Le taux de contre-visite varie fortement selon le département — dans
+        Le taux de contre-visite varie fortement selon le département. Dans
         un département sur deux, il est inférieur à 19,08%, mais les écarts
         sont marqués. Survolez la carte pour voir le nom de chaque
         département.
@@ -230,7 +229,7 @@ export default async function GuidePage() {
         Carte des 96 départements (tracé réel, données géographiques ouvertes
         gregoiredavid/france-geojson). Le bilan UTAC-OTC complet par
         département est publié au format PDF et n'est pas structuré en open
-        data exploitable automatiquement — au survol, seuls les 3
+        data exploitable automatiquement. Au survol, seuls les 3
         départements vérifiés affichent un chiffre 2025 (source : bilan
         UTAC-OTC 2025, relayé par L'Argus), les autres indiquent "donnée non
         disponible" plutôt qu'un chiffre inventé. Le détail complet par

@@ -140,7 +140,7 @@ export default function SearchBar() {
                   onClick={() => goToMarque(m.label)}
                   style={{ padding: "0.6rem 1rem", cursor: "pointer", fontSize: "0.92rem", borderBottom: "1px solid var(--ligne)" }}
                 >
-                  Rappels constructeur — <strong>{m.label}</strong>
+                  Rappels constructeur : <strong>{m.label}</strong>
                 </div>
               ))}
             </div>

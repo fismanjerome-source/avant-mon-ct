@@ -40,7 +40,7 @@ export default function VenteOccasionPage() {
       <h1>Vendre ou acheter une voiture d'occasion : ce que dit la loi</h1>
       <p className="lede">
         Vendre un véhicule sans contrôle technique valide n'est pas qu'une
-        mauvaise idée commerciale — c'est souvent une obligation légale.
+        mauvaise idée commerciale, c'est souvent une obligation légale.
         Voici les règles, sans jargon.
       </p>
 
@@ -53,54 +53,45 @@ export default function VenteOccasionPage() {
         s'expose à voir la vente contestée.
       </div>
 
-      <div className="info-box">
-        <strong>Si une contre-visite a eu lieu.</strong> Lorsque le dernier
-        contrôle a débouché sur une contre-visite, c'est le rapport de la{" "}
-        <strong>contre-visite</strong> qui doit être remis, et il doit dater
-        de <strong>moins de 2 mois</strong> à la date de la vente — pas les 6
-        mois habituels.
-      </div>
+      <p>
+        Si le dernier contrôle a débouché sur une contre-visite, c'est le
+        rapport de cette <strong>contre-visite</strong> qui doit être remis,
+        et il doit dater de <strong>moins de 2 mois</strong> à la date de la
+        vente, pas les 6 mois habituels.
+      </p>
 
       <div className="section-title">
         <h2>Cas particuliers</h2>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-        <div style={{ border: "1px solid var(--ligne)", borderRadius: 10, padding: "1.2rem 1.4rem", background: "var(--fond)" }}>
-          <strong style={{ color: "var(--bleu-900)" }}>Véhicule électrique</strong>
-          <p style={{ margin: "0.4rem 0 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
-            Soumis aux mêmes règles de vente que les autres véhicules. Le
-            contrôle ne comprend logiquement pas de mesure de pollution
-            (pas de combustion), mais porte sur les autres fonctions
-            (freinage, direction, sécurité électrique, etc.).
-          </p>
-        </div>
-        <div style={{ border: "1px solid var(--ligne)", borderRadius: 10, padding: "1.2rem 1.4rem", background: "var(--fond)" }}>
-          <strong style={{ color: "var(--bleu-900)" }}>Véhicule de collection</strong>
-          <p style={{ margin: "0.4rem 0 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
-            Périodicité allongée à 5 ans (au lieu de 2) pour un véhicule
-            immatriculé en collection. Les modèles antérieurs à 1960 sont
-            dispensés de contrôle périodique — sauf en cas de vente, où un
-            contrôle de moins de 6 mois reste exigé.
-          </p>
-        </div>
-        <div style={{ border: "1px solid var(--ligne)", borderRadius: 10, padding: "1.2rem 1.4rem", background: "var(--fond)" }}>
-          <strong style={{ color: "var(--bleu-900)" }}>Véhicule importé</strong>
-          <p style={{ margin: "0.4rem 0 0", color: "var(--ink-soft)", fontSize: "0.92rem" }}>
-            Un véhicule importé doit passer un contrôle technique français
-            dans les 6 mois suivant son immatriculation en France, même s'il
-            a déjà été contrôlé dans le pays d'origine.
-          </p>
-        </div>
-      </div>
+      <p>
+        <strong style={{ color: "var(--bleu-900)" }}>Véhicule électrique.</strong>{" "}
+        Soumis aux mêmes règles de vente que les autres véhicules. Le
+        contrôle ne comprend logiquement pas de mesure de pollution (pas de
+        combustion), mais porte sur les autres fonctions (freinage,
+        direction, sécurité électrique, etc.).
+      </p>
+      <p>
+        <strong style={{ color: "var(--bleu-900)" }}>Véhicule de collection.</strong>{" "}
+        Périodicité allongée à 5 ans (au lieu de 2) pour un véhicule
+        immatriculé en collection. Les modèles antérieurs à 1960 sont
+        dispensés de contrôle périodique, sauf en cas de vente, où un
+        contrôle de moins de 6 mois reste exigé.
+      </p>
+      <p>
+        <strong style={{ color: "var(--bleu-900)" }}>Véhicule importé.</strong>{" "}
+        Un véhicule importé doit passer un contrôle technique français dans
+        les 6 mois suivant son immatriculation en France, même s'il a déjà
+        été contrôlé dans le pays d'origine.
+      </p>
 
-      <div className="info-box">
-        <strong>À noter.</strong> Une rumeur a circulé sur un passage au
-        contrôle technique annuel dès 10 ans à partir de 2026 : c'est une
-        proposition européenne à laquelle la France s'oppose officiellement.
-        Elle ne s'applique pas aujourd'hui — la périodicité reste de 2 ans
-        après le premier contrôle à 4 ans.
-      </div>
+      <p className="lede" style={{ fontSize: "0.95rem" }}>
+        À noter : une rumeur a circulé sur un passage au contrôle technique
+        annuel dès 10 ans à partir de 2026. C'est une proposition européenne
+        à laquelle la France s'oppose officiellement, et qui ne s'applique
+        pas aujourd'hui : la périodicité reste de 2 ans après le premier
+        contrôle à 4 ans.
+      </p>
 
       <p className="source-note">
         Sources : article R323-22 du Code de la route (Légifrance),

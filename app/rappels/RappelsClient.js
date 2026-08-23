@@ -245,7 +245,7 @@ export default function RappelsClient() {
                     RappelConso ne publie pas de consigne détaillée pour ce
                     rappel précis. La règle générale et sûre pour tout rappel
                     constructeur : contactez votre <strong>concessionnaire {marque}</strong> avec
-                    le numéro d'immatriculation de votre véhicule — la vérification
+                    le numéro d'immatriculation de votre véhicule. La vérification
                     et la réparation sont gratuites dans le cadre d'un rappel.
                   </p>
                 </div>
@@ -254,7 +254,7 @@ export default function RappelsClient() {
               {r.lien && (
                 <div style={{ marginTop: "0.7rem" }}>
                   <a href={r.lien} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.85rem" }}>
-                    Voir la fiche officielle complète RappelConso →
+                    Voir la fiche officielle complète RappelConso
                   </a>
                 </div>
               )}
@@ -267,7 +267,7 @@ export default function RappelsClient() {
         Source : RappelConso V2, données ouvertes publiées par la DGCCRF,
         mises à jour toutes les heures. Le champ modèle filtre sur le texte
         exact publié par le constructeur (parfois plusieurs modèles listés
-        ensemble) — laissez-le vide pour voir tous les rappels de la marque.
+        ensemble) : laissez-le vide pour voir tous les rappels de la marque.
         Recherche limitée aux 20 rappels les plus récents.
       </p>
 

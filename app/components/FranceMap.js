@@ -82,7 +82,7 @@ export default function FranceMap() {
           <br />
           {donneeSurvolee ? (
             <span style={{ fontFamily: "var(--font-mono)" }}>
-              {donneeSurvolee.taux} — {donneeSurvolee.niveau}
+              {donneeSurvolee.taux} · {donneeSurvolee.niveau}
             </span>
           ) : (
             <span style={{ color: "var(--ink-faint)" }}>Donnée non disponible</span>
@@ -116,7 +116,7 @@ export default function FranceMap() {
                 }}
               />
               <strong style={{ fontSize: "0.92rem" }}>{p.nom}</strong>
-              <span style={{ color: "var(--ink-faint)", fontSize: "0.82rem" }}>— {p.niveau}</span>
+              <span style={{ color: "var(--ink-faint)", fontSize: "0.82rem" }}>· {p.niveau}</span>
             </span>
             <span className="num" style={{ fontSize: "1.1rem" }}>
               {p.taux}

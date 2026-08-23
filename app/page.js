@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="hero">
         <div className="hero-inner">
           <span className="eyebrow">🚗 Avant d'aller au contrôle technique</span>
-          <h1>Évitez la contre-visite — 10 minutes de vérification chez vous suffisent</h1>
+          <h1>Évitez la contre-visite : 10 minutes de vérification chez vous suffisent</h1>
           <p className="lead">
             Checklist, rappels constructeur, centres agréés près de chez vous :
             tout ce qu'il faut savoir avant votre contrôle technique, gratuit et
@@ -91,7 +91,7 @@ export default function HomePage() {
               Voiture ou moto : vérifiez les points responsables de la
               majorité des échecs, en 10 minutes.
             </p>
-            <span className="tag">Commencer la checklist →</span>
+            <span className="tag">Commencer la checklist</span>
           </a>
 
           <a className="card" href="/points-controle">
@@ -101,17 +101,17 @@ export default function HomePage() {
               La liste complète, classée par fonction officielle, pour
               voiture et moto.
             </p>
-            <span className="tag">Voir tous les points →</span>
+            <span className="tag">Voir tous les points</span>
           </a>
 
           <a className="card" href="/entretien">
             <span className="icon">🔧</span>
             <h3>Guide d'entretien</h3>
             <p>
-              Quotidien, révisions, conduite, hiver, été — les bons réflexes
-              toute l'année.
+              Quotidien, révisions, conduite, hiver comme été : les bons
+              réflexes toute l'année.
             </p>
-            <span className="tag">Consulter le guide →</span>
+            <span className="tag">Consulter le guide</span>
           </a>
 
           <a className="card" href="/rappels">
@@ -121,7 +121,7 @@ export default function HomePage() {
               Votre marque fait-elle l'objet d'un rappel officiel ? Recherche
               en direct dans RappelConso (DGCCRF).
             </p>
-            <span className="tag">Vérifier ma marque →</span>
+            <span className="tag">Vérifier ma marque</span>
           </a>
 
           <a className="card" href="/centres">
@@ -131,7 +131,7 @@ export default function HomePage() {
               Trouvez un centre près de chez vous dans l'annuaire officiel
               des 6 100+ centres agréés en France.
             </p>
-            <span className="tag">Chercher un centre →</span>
+            <span className="tag">Chercher un centre</span>
           </a>
 
           <a className="card" href="/rappel">
@@ -141,7 +141,7 @@ export default function HomePage() {
               Un email avant la date limite de votre contrôle technique,
               pour éviter l'amende de 135€.
             </p>
-            <span className="tag">Activer un rappel →</span>
+            <span className="tag">Activer un rappel</span>
           </a>
 
           <a className="card" href="/vente-occasion">
@@ -151,7 +151,7 @@ export default function HomePage() {
               La règle des 6 mois, les exceptions, et les cas particuliers
               (électrique, collection, importé).
             </p>
-            <span className="tag">Voir les obligations →</span>
+            <span className="tag">Voir les obligations</span>
           </a>
 
           <a className="card" href="/guide">
@@ -159,9 +159,9 @@ export default function HomePage() {
             <h3>Guide &amp; chiffres officiels</h3>
             <p>
               Prix réels, motifs de contre-visite, FAQ, différences
-              voiture/moto — avec sources vérifiées.
+              voiture/moto, avec sources vérifiées.
             </p>
-            <span className="tag">Consulter le guide →</span>
+            <span className="tag">Consulter le guide</span>
           </a>
 
           <a className="card" href="/actualites">
@@ -171,7 +171,7 @@ export default function HomePage() {
               Les évolutions réglementaires du contrôle technique, sourcées
               et vérifiées.
             </p>
-            <span className="tag">Voir les actualités →</span>
+            <span className="tag">Voir les actualités</span>
           </a>
         </div>
 

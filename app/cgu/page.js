@@ -59,7 +59,7 @@ export default function CGUPage() {
       <p style={{ color: "var(--ink-soft)" }}>
         Aucun compte n'est requis pour utiliser le site. Le formulaire de
         rappel d'échéance collecte une plaque d'immatriculation, un email et
-        une date, uniquement pour l'envoi du rappel — voir la{" "}
+        une date, uniquement pour l'envoi du rappel. Voir la{" "}
         <a href="/confidentialite">politique de confidentialité</a> pour le
         détail. Pour exercer vos droits RGPD, contactez contact@creneauct.fr.
       </p>

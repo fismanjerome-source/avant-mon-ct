@@ -16,14 +16,14 @@ export default function MentionsLegalesPage() {
         légales incomplètes ou inexactes est une infraction en droit
         français (loi n°2004-575 du 21 juin 2004 pour la confiance dans
         l'économie numérique). Les champs entre crochets ci-dessous doivent
-        être complétés avant toute mise en ligne publique — cherchez{" "}
+        être complétés avant toute mise en ligne publique : cherchez{" "}
         <code>data-todo</code> dans le code de cette page.
       </div>
 
       <h2 style={{ marginTop: "2rem" }}>Éditeur du site</h2>
       <p
         style={{ color: "var(--ink-soft)" }}
-        data-todo="nom, statut (entreprise individuelle, société...), SIRET, adresse — identiques à ceux de Créneau CT, à compléter dès l'immatriculation"
+        data-todo="nom, statut (entreprise individuelle, société...), SIRET, adresse : identiques à ceux de Créneau CT, à compléter dès l'immatriculation"
       >
         Avant Mon CT est édité par la même personne/entité que{" "}
         <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=mentions-legales" target="_blank" rel="noopener noreferrer">
@@ -32,7 +32,7 @@ export default function MentionsLegalesPage() {
         :<br />
         [Nom et prénom ou dénomination sociale à compléter]
         <br />
-        Statut : [Entrepreneur individuel / Auto-entrepreneur / Société — à
+        Statut : [Entrepreneur individuel / Auto-entrepreneur / Société, à
         compléter]
         <br />
         SIRET : [à compléter après immatriculation]

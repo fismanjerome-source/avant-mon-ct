@@ -255,7 +255,7 @@ export default function ChecklistClient() {
 
       <div className={`result-banner ${allDone ? "ok" : "warn"}`}>
         {allDone
-          ? "Tout est vérifié — vous êtes prêt pour votre contrôle technique."
+          ? "Tout est vérifié : vous êtes prêt pour votre contrôle technique."
           : `${done}/${total} points vérifiés (${pct}%). Continuez avant d'y aller.`}
       </div>
 

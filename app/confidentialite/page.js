@@ -63,8 +63,8 @@ export default function ConfidentialitePage() {
         Avant Mon CT est édité par la même entité que{" "}
         <a href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=confidentialite" target="_blank" rel="noopener noreferrer">
           Créneau CT
-        </a>{" "}
-        — voir les{" "}
+        </a>
+        , voir les{" "}
         <a href="/mentions-legales">mentions légales</a> pour les coordonnées
         complètes (SIRET et adresse à finaliser lors de l'immatriculation).
       </p>

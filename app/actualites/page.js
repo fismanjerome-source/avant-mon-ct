@@ -4,7 +4,7 @@ const ACTUALITES = [
     titre: "Bilan annuel du contrôle technique 2025 publié par l'UTAC-OTC",
     resume:
       "27 611 997 contrôles techniques réalisés en France en 2025 (+3,63% vs 2024), dont plus de 23 millions de contrôles périodiques obligatoires. Taux de contre-visites stable à 18,94% pour les véhicules légers.",
-    source: "UTAC-OTC — organisme technique central",
+    source: "UTAC-OTC (organisme technique central)",
     lien: "https://www.utac-otc.com",
   },
   {
@@ -62,7 +62,7 @@ export default function ActualitesPage() {
           <h3 style={{ margin: "0.3rem 0 0.5rem" }}>{a.titre}</h3>
           <p style={{ color: "var(--ink-soft)", margin: "0 0 0.6rem" }}>{a.resume}</p>
           <a href={a.lien} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.85rem" }}>
-            Source : {a.source} →
+            Source : {a.source}
           </a>
         </div>
       ))}
@@ -70,8 +70,8 @@ export default function ActualitesPage() {
       <div className="info-box">
         <strong>Pourquoi pas un flux Légifrance en direct ?</strong> Légifrance
         propose une API officielle (PISTE), mais elle nécessite une
-        inscription et des identifiants OAuth2 propres à chaque compte — je
-        ne peux pas la connecter sans que vous créiez un compte gratuit sur{" "}
+        inscription et des identifiants OAuth2 propres à chaque compte. Je
+        ne peux donc pas la connecter sans que vous créiez un compte gratuit sur{" "}
         <a href="https://piste.gouv.fr" target="_blank" rel="noopener noreferrer">
           piste.gouv.fr
         </a>{" "}
