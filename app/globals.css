@@ -63,6 +63,10 @@
   box-sizing: border-box;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -202,6 +206,13 @@ header.site {
   box-shadow: var(--shadow-sm);
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
 header.site .brand {
   display: flex;
   align-items: center;
@@ -211,6 +222,7 @@ header.site .brand {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.1rem;
+  white-space: nowrap;
 }
 
 header.site nav {
@@ -264,17 +276,39 @@ header.site nav a.pill-accent:hover {
   }
 }
 
-/* Menu hamburger — même mécanique que Créneau CT */
-header.site {
-  position: sticky;
-  padding-left: 4rem;
+@media (max-width: 720px) {
+  header.site {
+    padding: 0.85rem 1rem;
+  }
+
+  /* Seul le bouton "Prendre RDV" reste visible en ligne — le reste de la
+     navigation passe par le menu hamburger, comme sur Créneau CT. */
+  header.site nav a:not(.pill-accent) {
+    display: none;
+  }
+
+  header.site nav {
+    gap: 0;
+    margin-left: auto;
+  }
+
+  .header-left {
+    order: 1;
+  }
+
+  header.site nav {
+    order: 2;
+  }
+
+  .search-bar-wrap {
+    order: 3;
+    flex-basis: 100%;
+    max-width: 100% !important;
+  }
 }
 
+/* Menu hamburger — même mécanique que Créneau CT */
 .hamburger-btn {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
   width: 36px;
   height: 36px;
   border-radius: 8px;
@@ -286,6 +320,7 @@ header.site {
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .hamburger-btn:hover {

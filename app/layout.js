@@ -78,11 +78,13 @@ export default function RootLayout({ children }) {
           Aller au contenu
         </a>
         <header className="site">
-          <SideMenu />
-          <a className="brand" href="/">
-            <Logo size={30} />
-            Avant Mon CT
-          </a>
+          <div className="header-left">
+            <SideMenu />
+            <a className="brand" href="/">
+              <Logo size={30} />
+              Avant Mon CT
+            </a>
+          </div>
           <SearchBar />
           <nav>
             <a href="/checklist">Ma checklist</a>

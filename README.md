@@ -58,17 +58,18 @@ du sitemap.
 
 ## Design
 Palette et typographie reprises de Créneau CT pour une cohérence de marque :
-navy officiel (#1B3A5C) + accent or (#D9A62E), Space Grotesk pour les titres,
-Inter pour le texte, Space Mono pour les chiffres/données. Mode sombre inclus
+navy officiel (#1B3A5C) + accent or (#D9A62E), Outfit pour les titres,
+DM Sans pour le texte, Fira Code pour les chiffres/données. Mode sombre inclus
 (`prefers-color-scheme`). Animations d'entrée (fade/slide) sur chaque page et
 sur les cartes, via `app/template.js` — respecte `prefers-reduced-motion`.
 
 ## Photos
-5 photos libres de droits (licence Unsplash — gratuite, usage commercial
+7 photos libres de droits (licence Unsplash — gratuite, usage commercial
 autorisé, aucune attribution légalement requise, créditée quand même par
 courtoisie) dans `public/images/`. Intégrées via `next/image` pour
 l'optimisation automatique (redimensionnement, lazy loading). Crédits :
-Kate Ibragimova, Chad Kirchoff, C Joyful, CHUTTERSNAP, Mehmet Talha Onuk.
+Kate Ibragimova, Chad Kirchoff, C Joyful, CHUTTERSNAP, Mehmet Talha Onuk,
+YearOne (phare-moto.jpg), Artiom Vallat (moteur-moto.jpg).
 
 ## Ce qui est fait
 - Page d'accueil avec chiffres clés (UTAC-OTC, DGCCRF) et 8 outils

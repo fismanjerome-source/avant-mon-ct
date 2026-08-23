@@ -178,26 +178,53 @@ export default function ChecklistClient() {
       </p>
 
       <div className="photo-grid">
-        <div className="photo-card">
-          <Image
-            src="/images/phare-moteur-audi.jpg"
-            alt="Compartiment moteur et phare d'une voiture, éclairage à vérifier"
-            fill
-            sizes="(max-width: 600px) 100vw, 440px"
-            style={{ objectFit: "cover" }}
-          />
-          <span className="tag-photo">Éclairage &amp; moteur</span>
-        </div>
-        <div className="photo-card">
-          <Image
-            src="/images/inspection-sous-voiture.jpg"
-            alt="Deux personnes inspectant le dessous d'une voiture"
-            fill
-            sizes="(max-width: 600px) 100vw, 440px"
-            style={{ objectFit: "cover" }}
-          />
-          <span className="tag-photo">Vérification visuelle</span>
-        </div>
+        {type === "moto" ? (
+          <>
+            <div className="photo-card">
+              <Image
+                src="/images/phare-moto.jpg"
+                alt="Gros plan sur le phare d'une moto, éclairage à vérifier"
+                fill
+                sizes="(max-width: 600px) 100vw, 440px"
+                style={{ objectFit: "cover" }}
+              />
+              <span className="tag-photo">Éclairage</span>
+            </div>
+            <div className="photo-card">
+              <Image
+                src="/images/moteur-moto.jpg"
+                alt="Gros plan sur le moteur d'une moto"
+                fill
+                sizes="(max-width: 600px) 100vw, 440px"
+                style={{ objectFit: "cover" }}
+              />
+              <span className="tag-photo">Moteur &amp; transmission</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="photo-card">
+              <Image
+                src="/images/phare-moteur-audi.jpg"
+                alt="Compartiment moteur et phare d'une voiture, éclairage à vérifier"
+                fill
+                sizes="(max-width: 600px) 100vw, 440px"
+                style={{ objectFit: "cover" }}
+              />
+              <span className="tag-photo">Éclairage &amp; moteur</span>
+            </div>
+            <div className="photo-card">
+              <Image
+                src="/images/inspection-sous-voiture.jpg"
+                alt="Deux personnes inspectant le dessous d'une voiture"
+                fill
+                sizes="(max-width: 600px) 100vw, 440px"
+                style={{ objectFit: "cover" }}
+              />
+              <span className="tag-photo">Vérification visuelle</span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="checklist-progress">

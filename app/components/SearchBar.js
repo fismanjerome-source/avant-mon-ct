@@ -61,7 +61,11 @@ export default function SearchBar() {
   const hasResults = marquesMatch.length > 0 || villes.length > 0;
 
   return (
-    <div ref={boxRef} style={{ position: "relative", width: "100%", maxWidth: 320 }}>
+    <div
+      ref={boxRef}
+      className="search-bar-wrap"
+      style={{ position: "relative", width: "100%", maxWidth: 320 }}
+    >
       <div style={{ position: "relative" }}>
         <svg
           width="16"
