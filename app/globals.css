@@ -572,8 +572,7 @@ footer.site .sources a {
 
 .section-title .note {
   color: var(--ink-faint);
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
 /* Cards */
@@ -959,9 +958,19 @@ button.primary:disabled {
   color: var(--rouge);
 }
 
+/* Avertissement légal important, sans passer par le rouge d'alerte :
+   évite le contraste criard rouge/or à côté des boutons d'action. */
+.info-box.important {
+  border-left-color: var(--bleu-900);
+  background: var(--bleu-100);
+}
+
+.info-box.important strong {
+  color: var(--bleu-900);
+}
+
 .source-note {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   color: var(--ink-faint);
   margin-top: 0.4rem;
 }
@@ -1061,7 +1070,6 @@ p.lede {
   bottom: 0.75rem;
   background: rgba(27, 58, 92, 0.85);
   color: white;
-  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
   padding: 0.3rem 0.7rem;

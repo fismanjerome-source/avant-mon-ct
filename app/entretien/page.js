@@ -114,7 +114,7 @@ export default function EntretienPage() {
       ))}
 
       <p className="source-note">
-        Sources : Loi Montagne 2 (Code de la route), recommandations générales
+        Sources : Loi Montagne 2 (code de la route), recommandations générales
         d'entretien automobile. Les intervalles de révision précis dépendent
         de votre modèle : reportez-vous toujours au carnet d'entretien de
         votre constructeur.

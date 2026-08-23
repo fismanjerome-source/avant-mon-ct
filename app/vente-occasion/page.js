@@ -7,7 +7,7 @@ const jsonLd = {
       name: "Peut-on vendre une voiture sans contrôle technique ?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Non, si le véhicule a plus de 4 ans et que l'acheteur est un particulier : un contrôle technique de moins de 6 mois doit obligatoirement être remis à l'acheteur (article R323-22 du Code de la route).",
+        text: "Non, si le véhicule a plus de 4 ans et que l'acheteur est un particulier : un contrôle technique de moins de 6 mois doit obligatoirement être remis à l'acheteur (article R. 323-22 du code de la route).",
       },
     },
     {
@@ -41,7 +41,7 @@ export default function VenteOccasionPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <span className="eyebrow">Article R323-22 du Code de la route</span>
+      <span className="eyebrow">Article R. 323-22 du code de la route</span>
       <h1>Vendre ou acheter une voiture d'occasion : ce que dit la loi</h1>
       <p className="lede">
         Vendre un véhicule sans contrôle technique valide n'est pas qu'une
@@ -49,11 +49,11 @@ export default function VenteOccasionPage() {
         Voici les règles, sans jargon.
       </p>
 
-      <div className="info-box danger">
+      <div className="info-box important">
         <strong>La règle principale.</strong> Pour tout véhicule de plus de 4
         ans vendu à un particulier, le vendeur doit fournir un contrôle
         technique daté de <strong>moins de 6 mois</strong> à la date de la
-        vente (article R323-22 du Code de la route). Sans ce document,
+        vente (article R. 323-22 du code de la route). Sans ce document,
         l'acheteur ne peut pas obtenir sa nouvelle carte grise, et le vendeur
         s'expose à voir la vente contestée.
       </div>
@@ -99,7 +99,7 @@ export default function VenteOccasionPage() {
       </p>
 
       <p className="source-note">
-        Sources : article R323-22 du Code de la route (Légifrance),
+        Sources : article R. 323-22 du code de la route (Légifrance),
         réglementation sur les véhicules de collection et l'importation.
         Cette page est informative et ne remplace pas un avis juridique.
       </p>

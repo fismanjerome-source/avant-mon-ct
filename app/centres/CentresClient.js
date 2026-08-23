@@ -104,12 +104,12 @@ export default function CentresClient({ initialCodePostal }) {
         France (DGCCRF), par département.
       </p>
 
-      <div className="info-box danger">
+      <div className="info-box important">
         <strong>Un contrôle technique n'est valable que dans un centre
         agréé.</strong> Tous les centres listés ici sont issus de l'annuaire
         officiel de la DGCCRF. Un contrôle réalisé hors de ce cadre, ou sans
         présentation physique du véhicule, est un faux (article 441-1 du
-        Code pénal).
+        code pénal).
       </div>
 
       <form

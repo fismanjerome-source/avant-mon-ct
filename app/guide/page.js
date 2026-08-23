@@ -203,13 +203,13 @@ export default async function GuidePage() {
         Utilisez la <a href="/checklist">checklist adaptée à votre véhicule</a>.
       </p>
 
-      <div className="info-box danger">
+      <div className="info-box important">
         <strong>Le contrôle technique doit obligatoirement être réalisé dans
         un centre agréé.</strong> Un contrôle réalisé ailleurs, ou délivré
         sans que le véhicule soit physiquement présenté et inspecté par un
         contrôleur (« contrôle technique de complaisance »), n'a aucune
         valeur légale et constitue un <strong>faux et usage de faux</strong> au
-        sens de l'<strong>article 441-1 du Code pénal</strong> : jusqu'à 3 ans
+        sens de l'<strong>article 441-1 du code pénal</strong> : jusqu'à 3 ans
         d'emprisonnement et 45 000€ d'amende, pour le centre comme pour le
         conducteur qui l'utilise sciemment. Trouvez un{" "}
         <a href="/centres">centre réellement agréé</a> sur notre annuaire
@@ -261,7 +261,7 @@ export default async function GuidePage() {
       <p className="source-note">
         Sources : bilan annuel UTAC-OTC (organisme technique central du
         contrôle technique en France), jeu de données "Prix des contrôles
-        techniques" (data.economie.gouv.fr), Code de la route,
+        techniques" (data.economie.gouv.fr), code de la route,
         service-public.fr.
       </p>
 
