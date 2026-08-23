@@ -13,9 +13,9 @@ const DONNEES = new Map(POINTS.map((p) => [p.code, p]));
 
 function couleurDept(code, survole) {
   const p = DONNEES.get(code);
-  const base = p ? (p.sens === "bas" ? "var(--vert)" : "var(--orange)") : "var(--bleu-50)";
+  const base = p ? (p.sens === "bas" ? "var(--vert)" : "var(--orange)") : "var(--carte-fond)";
   if (!survole) return base;
-  return p ? base : "var(--bleu-100)";
+  return p ? base : "var(--carte-fond-survol)";
 }
 
 export default function FranceMap() {
@@ -30,13 +30,19 @@ export default function FranceMap() {
         style={{ width: "100%", height: "auto", maxWidth: 460, display: "block", margin: "0 auto", cursor: "pointer" }}
         onMouseLeave={() => setSurvol(null)}
       >
+        <defs>
+          <filter id="carte-ombre" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="1" stdDeviation="3" floodColor="var(--bleu-900)" floodOpacity="0.25" />
+          </filter>
+        </defs>
+        <g filter="url(#carte-ombre)">
         {DEPARTEMENTS.map((dep) => (
           <path
             key={dep.code}
             d={dep.d}
             fill={couleurDept(dep.code, survol && survol.code === dep.code)}
             stroke="var(--fond)"
-            strokeWidth={survol && survol.code === dep.code ? "1.4" : "0.6"}
+            strokeWidth={survol && survol.code === dep.code ? "1.4" : "0.8"}
             onMouseEnter={(e) => {
               const rect = e.currentTarget.ownerSVGElement.getBoundingClientRect();
               setSurvol({
@@ -56,6 +62,7 @@ export default function FranceMap() {
             }}
           />
         ))}
+        </g>
       </svg>
 
       {survol && (
