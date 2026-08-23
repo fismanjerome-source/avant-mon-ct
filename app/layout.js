@@ -1,4 +1,5 @@
 import { Outfit, DM_Sans, Fira_Code } from "next/font/google";
+import Script from "next/script";
 import SearchBar from "./components/SearchBar";
 import Logo from "./components/Logo";
 import SideMenu from "./components/SideMenu";
@@ -51,6 +52,20 @@ export const metadata = {
       "Checklist gratuite, rappel d'échéance et guide officiel du contrôle technique en France.",
   },
   robots: { index: true, follow: true },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Avant Mon CT",
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icons/apple-touch-icon.png",
+  },
+};
+
+export const viewport = {
+  themeColor: "#1B3A5C",
 };
 
 const websiteJsonLd = {
@@ -70,6 +85,13 @@ export default function RootLayout({ children }) {
       className={`${outfit.variable} ${dmSans.variable} ${firaCode.variable}`}
     >
       <body>
+        {process.env.NEXT_PUBLIC_CF_BEACON_TOKEN && (
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: process.env.NEXT_PUBLIC_CF_BEACON_TOKEN })}
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
