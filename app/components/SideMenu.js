@@ -68,6 +68,14 @@ export default function SideMenu() {
               <a href="/rappels" onClick={() => setOuvert(false)}>⚠️ Un rappel constructeur ?</a>
               <a href="/centres" onClick={() => setOuvert(false)}>📍 Trouver un centre agréé</a>
               <a href="/rappel" onClick={() => setOuvert(false)}>⏰ Prévenez-moi avant l'échéance</a>
+              <a
+                href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=side-menu"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOuvert(false)}
+              >
+                📅 Réserver sur Créneau CT
+              </a>
             </div>
 
             <div className="side-menu-section">
