@@ -20,7 +20,7 @@ export default function NotFound() {
       </div>
 
       <p style={{ marginTop: "2.5rem" }}>
-        <a href="/">← Retour à l'accueil</a>
+        <a href="/">Retour à l'accueil</a>
       </p>
     </div>
   );

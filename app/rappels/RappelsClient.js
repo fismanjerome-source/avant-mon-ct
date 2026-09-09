@@ -137,7 +137,7 @@ export default function RappelsClient({ initialMarque }) {
             <h2>
               {result.total} rappel{result.total !== 1 ? "s" : ""} trouvé
               {result.total !== 1 ? "s" : ""} pour {marque}
-              {modele ? ` — "${modele}"` : ""}
+              {modele ? ` · "${modele}"` : ""}
             </h2>
           </div>
 

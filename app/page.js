@@ -1,10 +1,12 @@
 import Image from "next/image";
+import HeroGauge from "./components/HeroGauge";
 import { PhoneIcon, MailIcon, WhatsAppIcon, SmsIcon } from "./components/ContactIcons";
 
 export default function HomePage() {
   return (
     <>
       <div className="hero">
+        <HeroGauge />
         <div className="hero-inner">
           <span className="eyebrow">🚗 Avant d'aller au contrôle technique</span>
           <h1>Évitez la contre-visite : 10 minutes de vérification chez vous suffisent</h1>
