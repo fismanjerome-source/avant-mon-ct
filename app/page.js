@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroGauge from "./components/HeroGauge";
+import { IconCoche, IconListe, IconCle, IconAlerte, IconPin, IconHorloge, IconPersonnes, IconGraphique, IconJournal, IconVoiture } from "./components/UISvgIcons";
 import { PhoneIcon, MailIcon, WhatsAppIcon, SmsIcon } from "./components/ContactIcons";
 
 export default function HomePage() {
@@ -8,7 +9,7 @@ export default function HomePage() {
       <div className="hero">
         <HeroGauge />
         <div className="hero-inner">
-          <span className="eyebrow">🚗 Avant d'aller au contrôle technique</span>
+          <span className="eyebrow"><IconVoiture size={18} /> Avant d'aller au contrôle technique</span>
           <h1>Évitez la contre-visite : 10 minutes de vérification chez vous suffisent</h1>
           <p className="lead">
             Checklist, rappels constructeur, centres agréés près de chez vous :
@@ -87,7 +88,7 @@ export default function HomePage() {
 
         <div className="card-grid">
           <a className="card" href="/checklist">
-            <span className="icon">✅</span>
+            <span className="icon"><IconCoche size={28} /></span>
             <h3>Checklist avant CT</h3>
             <p>
               Voiture ou moto : vérifiez les points responsables de la
@@ -97,7 +98,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/points-controle">
-            <span className="icon">📋</span>
+            <span className="icon"><IconListe size={28} /></span>
             <h3>Les 136 points de contrôle</h3>
             <p>
               La liste complète, classée par fonction officielle, pour
@@ -107,7 +108,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/entretien">
-            <span className="icon">🔧</span>
+            <span className="icon"><IconCle size={28} /></span>
             <h3>Guide d'entretien</h3>
             <p>
               Quotidien, révisions, conduite, hiver comme été : les bons
@@ -117,7 +118,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/rappels">
-            <span className="icon">⚠️</span>
+            <span className="icon"><IconAlerte size={28} /></span>
             <h3>Rappels constructeur</h3>
             <p>
               Votre marque fait-elle l'objet d'un rappel officiel ? Recherche
@@ -127,7 +128,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/centres">
-            <span className="icon">📍</span>
+            <span className="icon"><IconPin size={28} /></span>
             <h3>Centres agréés</h3>
             <p>
               Trouvez un centre près de chez vous dans l'annuaire officiel
@@ -137,7 +138,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/rappel">
-            <span className="icon">⏰</span>
+            <span className="icon"><IconHorloge size={28} /></span>
             <h3>Rappel d'échéance</h3>
             <p>
               Un email avant la date limite de votre contrôle technique,
@@ -147,7 +148,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/vente-occasion">
-            <span className="icon">🤝</span>
+            <span className="icon"><IconPersonnes size={28} /></span>
             <h3>Vendre une voiture d'occasion</h3>
             <p>
               La règle des 6 mois, les exceptions, et les cas particuliers
@@ -157,7 +158,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/guide">
-            <span className="icon">📊</span>
+            <span className="icon"><IconGraphique size={28} /></span>
             <h3>Guide &amp; chiffres officiels</h3>
             <p>
               Prix réels, motifs de contre-visite, FAQ, différences
@@ -167,7 +168,7 @@ export default function HomePage() {
           </a>
 
           <a className="card" href="/actualites">
-            <span className="icon">📰</span>
+            <span className="icon"><IconJournal size={28} /></span>
             <h3>Actualités</h3>
             <p>
               Les évolutions réglementaires du contrôle technique, sourcées

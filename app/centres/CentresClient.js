@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { IconPin, IconGlobe, IconCalendrier } from "../components/UISvgIcons";
+import { PhoneIcon } from "../components/ContactIcons";
 
 export default function CentresClient({ initialCodePostal }) {
   const [type, setType] = useState("voiture");
@@ -234,7 +236,7 @@ export default function CentresClient({ initialCodePostal }) {
                     <strong>{c.nom}</strong>
                     <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                       {c.distanceKm != null && (
-                        <span className="centre-resultat-distance">📍 {c.distanceKm} km</span>
+                        <span className="centre-resultat-distance"><IconPin size={14} /> {c.distanceKm} km</span>
                       )}
                       {c.reservableSurCreneauCT && (
                         <span className="badge" style={{ whiteSpace: "nowrap" }}>
@@ -247,10 +249,10 @@ export default function CentresClient({ initialCodePostal }) {
                     {c.adresse}, {c.codePostal} {c.commune}
                   </p>
                   <div className="centre-resultat-contact">
-                    {c.telephone && <span>📞 {c.telephone}</span>}
+                    {c.telephone && <span><PhoneIcon size={15} /> {c.telephone}</span>}
                     {c.url && (
                       <a href={c.url} target="_blank" rel="noopener noreferrer">
-                        🌐 Site web
+                        <IconGlobe size={15} /> Site web
                       </a>
                     )}
                     {c.reservableSurCreneauCT && (
@@ -260,7 +262,7 @@ export default function CentresClient({ initialCodePostal }) {
                         rel="noopener noreferrer"
                         style={{ color: "var(--or)" }}
                       >
-                        📅 Prendre RDV
+                        <IconCalendrier size={15} /> Prendre RDV
                       </a>
                     )}
                   </div>

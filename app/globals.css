@@ -422,6 +422,9 @@ header.site nav a.pill-accent:hover {
 }
 
 .side-menu-panel .side-menu-section a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   color: var(--ink);
   text-decoration: none;
   padding: 0.55rem 0.25rem;
@@ -654,10 +657,10 @@ footer.site .sources a {
 }
 
 .card .icon {
-  font-size: 1.6rem;
   line-height: 1;
   margin-bottom: 0.7rem;
   display: block;
+  color: var(--bleu-700);
 }
 
 .card h3 {
@@ -1297,3 +1300,8 @@ p.lede {
     justify-content: center;
   }
 }
+
+/* Icônes SVG insérées dans du texte (remplacent les emoji) */
+.side-menu-panel .side-menu-section a svg { flex-shrink: 0; color: var(--bleu-700); }
+.eyebrow svg { flex-shrink: 0; }
+.centre-resultat-distance svg { flex-shrink: 0; }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { IconCoche, IconListe, IconCle, IconAlerte, IconPin, IconHorloge, IconCalendrier, IconGraphique, IconPersonnes, IconJournal, IconInfo, IconBalance, IconRecu, IconCadenas } from "./UISvgIcons";
 
 function HamburgerIcon() {
   return (
@@ -58,35 +59,35 @@ export default function SideMenu() {
 
             <div className="side-menu-section">
               <span className="side-menu-section-titre">Avant le contrôle technique</span>
-              <a href="/checklist" onClick={() => setOuvert(false)}>✅ Ma checklist</a>
-              <a href="/points-controle" onClick={() => setOuvert(false)}>📋 Ce qui est vérifié (136 points)</a>
-              <a href="/entretien" onClick={() => setOuvert(false)}>🔧 Bien l'entretenir</a>
+              <a href="/checklist" onClick={() => setOuvert(false)}><IconCoche /> Ma checklist</a>
+              <a href="/points-controle" onClick={() => setOuvert(false)}><IconListe /> Ce qui est vérifié (136 points)</a>
+              <a href="/entretien" onClick={() => setOuvert(false)}><IconCle /> Bien l'entretenir</a>
             </div>
 
             <div className="side-menu-section">
               <span className="side-menu-section-titre">Vérifications</span>
-              <a href="/rappels" onClick={() => setOuvert(false)}>⚠️ Un rappel constructeur ?</a>
-              <a href="/centres" onClick={() => setOuvert(false)}>📍 Trouver un centre agréé</a>
-              <a href="/rappel" onClick={() => setOuvert(false)}>⏰ Prévenez-moi avant l'échéance</a>
+              <a href="/rappels" onClick={() => setOuvert(false)}><IconAlerte /> Un rappel constructeur ?</a>
+              <a href="/centres" onClick={() => setOuvert(false)}><IconPin /> Trouver un centre agréé</a>
+              <a href="/rappel" onClick={() => setOuvert(false)}><IconHorloge /> Prévenez-moi avant l'échéance</a>
               <a
                 href="https://creneauct.fr?utm_source=avant-mon-ct&utm_medium=website&utm_campaign=side-menu"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOuvert(false)}
               >
-                📅 Réserver sur Créneau CT
+                <IconCalendrier /> Réserver sur Créneau CT
               </a>
             </div>
 
             <div className="side-menu-section">
               <span className="side-menu-section-titre">Informations</span>
-              <a href="/guide" onClick={() => setOuvert(false)}>📊 Guide &amp; chiffres officiels</a>
-              <a href="/vente-occasion" onClick={() => setOuvert(false)}>🤝 Vendre d'occasion</a>
-              <a href="/actualites" onClick={() => setOuvert(false)}>📰 Quoi de neuf ?</a>
-              <a href="/a-propos" onClick={() => setOuvert(false)}>ℹ️ À propos</a>
-              <a href="/mentions-legales" onClick={() => setOuvert(false)}>⚖️ Mentions légales</a>
-              <a href="/cgu" onClick={() => setOuvert(false)}>📄 CGU</a>
-              <a href="/confidentialite" onClick={() => setOuvert(false)}>🔒 Confidentialité</a>
+              <a href="/guide" onClick={() => setOuvert(false)}><IconGraphique /> Guide &amp; chiffres officiels</a>
+              <a href="/vente-occasion" onClick={() => setOuvert(false)}><IconPersonnes /> Vendre d'occasion</a>
+              <a href="/actualites" onClick={() => setOuvert(false)}><IconJournal /> Quoi de neuf ?</a>
+              <a href="/a-propos" onClick={() => setOuvert(false)}><IconInfo /> À propos</a>
+              <a href="/mentions-legales" onClick={() => setOuvert(false)}><IconBalance /> Mentions légales</a>
+              <a href="/cgu" onClick={() => setOuvert(false)}><IconRecu /> CGU</a>
+              <a href="/confidentialite" onClick={() => setOuvert(false)}><IconCadenas /> Confidentialité</a>
             </div>
           </div>
         </div>
